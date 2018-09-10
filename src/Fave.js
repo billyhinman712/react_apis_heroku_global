@@ -2,7 +2,22 @@ import React, { Component } from 'react';
 
 class Fave extends Component {
 
-  handleClick = e => (console.log("handling Fave click"))
+  constructor(){
+    super()
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this)
+
+    this.state = {
+      isFave: false
+    }
+  }
+
+  handleClick = e => (
+    e.stopPropagation(),
+    console.log("handling Fave click"),
+    this.setState({isFave: !this.state.isFave})
+    )
 
   render() {
     return (

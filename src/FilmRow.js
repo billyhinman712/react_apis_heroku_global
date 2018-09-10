@@ -4,6 +4,13 @@ import Fave from './Fave';
 
 export default class FilmRow extends Component {
 
+  constructor(){
+    super()
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleDetailsClick = this.handleDetailsClick.bind(this)
+  }
+
   handleDetailsClick = film => (console.log("fetching details for" + film))
 
   render() {

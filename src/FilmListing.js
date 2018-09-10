@@ -3,6 +3,13 @@ import FilmRow from './FilmRow';
 
 class FilmListing extends Component {
 
+  constructor(){
+    super()
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleFilterClick = this.handleFilterClick.bind(this)
+  }
+
   handleFilterClick = filter => (console.log("Setting filter to" + filter))
 
   render() {
